@@ -31,11 +31,11 @@ public class Server {
                 outputStream = new DataOutputStream(socket.getOutputStream());
 
                 name = inputStream.readUTF();
-                Client users = new Client();
+                Client users = new Client(name,outputStream,inputStream);
                 System.out.println("["+name + " is connected."+"]");
                 clients.add(users);
 
-                String message = "["+name+ " has join the group."+"]";
+                String message = name+ " has join the group.";
                 System.out.println(message);
                 List<Client> clientList = Server.clients;
 
