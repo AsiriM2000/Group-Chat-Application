@@ -40,7 +40,7 @@ public class Server {
                 List<Client> clientList = Server.clients;
 
                 for (Client c : clientList){
-                    DataOutputStream stream = null;
+                    DataOutputStream stream = c.getOutputStream();
                     stream.writeUTF(message);
                 }
 
