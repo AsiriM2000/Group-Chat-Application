@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ChatRoom">
+<AnchorPane prefHeight="674.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ChatRoom">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
-         <image>
-            <Image url="@../assests/ws_WhatsApp_Background_1280x1024.jpg" />
-         </image>
-      </ImageView>
-      <TextArea fx:id="message_area" layoutX="53.0" layoutY="36.0" prefHeight="285.0" prefWidth="497.0" />
-      <TextField fx:id="message_type" layoutX="53.0" layoutY="342.0" onKeyReleased="#key_entered" prefHeight="34.0" prefWidth="386.0" style="-fx-background-radius: 10;" />
-      <Button layoutX="471.0" layoutY="342.0" mnemonicParsing="false" onAction="#message_send_OnAction" prefHeight="34.0" prefWidth="79.0" style="-fx-background-radius: 10;" text="Send" />
+      <TextArea fx:id="message_area" layoutY="74.0" prefHeight="540.0" prefWidth="471.0" />
+      <TextField fx:id="message_type" layoutX="7.0" layoutY="626.0" onKeyReleased="#key_entered" prefHeight="37.0" prefWidth="364.0" style="-fx-background-radius: 10;" />
+      <Button layoutX="385.0" layoutY="626.0" mnemonicParsing="false" onAction="#message_send_OnAction" prefHeight="34.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-background-color: #075E54;" text="Send" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Pane prefHeight="74.0" prefWidth="471.0" style="-fx-background-color: #075E54;">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="282.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/video.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="355.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/phone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="427.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/3icon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblName" layoutX="129.0" layoutY="16.0" prefHeight="30.0" prefWidth="107.0" text="Asiri" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="57.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/man.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

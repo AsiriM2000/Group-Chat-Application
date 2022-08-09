@@ -1,6 +1,7 @@
 package client;
 
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -14,6 +15,7 @@ public class ChatRoom {
 
     public TextArea message_area;
     public TextField message_type;
+    public Label lblName;
 
     Socket socket;
     DataInputStream inputStream;
@@ -22,6 +24,7 @@ public class ChatRoom {
 
     public void initialize() {
         message_area.setEditable(false);
+        lblName.setText(name);
 
         try {
             socket = new Socket("localhost", 20001);
@@ -38,6 +41,7 @@ public class ChatRoom {
                         if (message.contains(name)) {
                             continue;
                         }
+
                         message_area.appendText(message+"\n");
                     }
                 } catch (Exception E) {
