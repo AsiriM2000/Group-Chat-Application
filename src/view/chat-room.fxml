@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <TextArea fx:id="message_area" layoutX="53.0" layoutY="36.0" prefHeight="285.0" prefWidth="497.0" />
-      <TextField fx:id="message_type" layoutX="53.0" layoutY="342.0" prefHeight="34.0" prefWidth="386.0" style="-fx-background-radius: 10;" />
+      <TextField fx:id="message_type" layoutX="53.0" layoutY="342.0" onKeyReleased="#key_entered" prefHeight="34.0" prefWidth="386.0" style="-fx-background-radius: 10;" />
       <Button layoutX="471.0" layoutY="342.0" mnemonicParsing="false" onAction="#message_send_OnAction" prefHeight="34.0" prefWidth="79.0" style="-fx-background-radius: 10;" text="Send" />
    </children>
 </AnchorPane>

@@ -1,5 +1,5 @@
 package client;
 
 public class Data {
-    public static  String clientName;
+    public static  String name;
 }

@@ -10,9 +10,9 @@ public class Client {
     String name;
     String message;
 
-    DataOutputStream outputStream;
+    private DataOutputStream outputStream;
 
-    DataOutputStream getOutputStream(){
+    public DataOutputStream getOutputStream(){
         return outputStream;
     }
 

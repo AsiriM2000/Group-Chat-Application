@@ -16,12 +16,12 @@ public class Login {
     public AnchorPane main;
 
     public void loginOnAction(ActionEvent actionEvent) throws IOException {
-        Data.clientName = clientName.getText();
+        Data.name = clientName.getText();
 
         Stage stage = (Stage) main.getScene().getWindow();
         Parent root = FXMLLoader.load(ChatRoom.class.getResource("../view/chat-room.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle(Data.clientName);
+        stage.setTitle(Data.name);
         stage.setResizable(false);
         stage.show();
     }
