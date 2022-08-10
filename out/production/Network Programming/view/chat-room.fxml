@@ -13,11 +13,6 @@
 <AnchorPane prefHeight="674.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ChatRoom">
    <children>
       <TextArea fx:id="message_area" layoutY="74.0" prefHeight="540.0" prefWidth="471.0" />
-      <TextField fx:id="message_type" layoutX="7.0" layoutY="626.0" onKeyReleased="#key_entered" prefHeight="37.0" prefWidth="364.0" style="-fx-background-radius: 10;" />
-      <Button layoutX="385.0" layoutY="626.0" mnemonicParsing="false" onAction="#message_send_OnAction" prefHeight="34.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-background-color: #075E54;" text="Send" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font></Button>
       <Pane prefHeight="74.0" prefWidth="471.0" style="-fx-background-color: #075E54;">
          <children>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="282.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
@@ -50,6 +45,36 @@
                   <Image url="@../assests/3.png" />
                </image>
             </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="send_pane" layoutY="615.0" prefHeight="59.0" prefWidth="471.0">
+         <children>
+            <TextField fx:id="message_type" layoutX="48.0" layoutY="12.0" onKeyReleased="#key_entered" prefHeight="37.0" prefWidth="320.0" style="-fx-background-radius: 10;" />
+            <Button layoutX="378.0" layoutY="11.0" mnemonicParsing="false" onAction="#message_send_OnAction" prefHeight="34.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-background-color: #075E54;" text="Send" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="camera" fitHeight="30.0" fitWidth="30.0" layoutX="327.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/photo-camera-interface-symbol-for-button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#emoji_clicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/imoji/1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="emoji_pane" layoutY="435.0" prefHeight="239.0" prefWidth="471.0" style="-fx-background-color: #34495E;" visible="false">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutY="4.0" onMouseClicked="#back_clicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/3.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="emoji_view_pane" layoutX="29.0" layoutY="42.0" prefHeight="181.0" prefWidth="415.0" style="-fx-background-color: #FFFFFF;" />
          </children>
       </Pane>
    </children>

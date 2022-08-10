@@ -4,18 +4,30 @@ package client;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Window;
 
-
-import java.io.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
-public class ChatRoom {
+public class ChatRoom extends Window {
 
     public TextArea message_area;
     public TextField message_type;
     public Label lblName;
+    public ImageView camera;
+    public Pane send_pane;
+    public Pane emoji_pane;
+    public Pane emoji_view_pane;
 
     Socket socket;
     DataInputStream inputStream;
@@ -23,6 +35,10 @@ public class ChatRoom {
     String name = Data.name;
 
     public void initialize() {
+        camera.setOnMouseClicked(event -> {
+
+        });
+
         message_area.setEditable(false);
         lblName.setText(name);
 
@@ -42,10 +58,19 @@ public class ChatRoom {
                             continue;
                         }
 
-                        message_area.appendText(message+"\n");
+                        message_area.appendText(message + "\n");
                     }
+
                 } catch (Exception E) {
                     E.printStackTrace();
+                }
+
+                try {
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+                    BufferedImage bufferedImage = ImageIO.read(bufferedInputStream);
+                    message_area.appendText(bufferedImage.toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
             }).start();
@@ -56,9 +81,9 @@ public class ChatRoom {
 
     public void message_send_OnAction() {
         try {
-            String msg = name+" : "+message_type.getText().trim();
+            String msg = name + " : " + message_type.getText().trim();
 
-            message_area.appendText(msg+"\n");
+            message_area.appendText(msg + "\n");
             outputStream.writeUTF(msg);
             outputStream.flush();
 
@@ -73,5 +98,13 @@ public class ChatRoom {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             message_send_OnAction();
         }
+    }
+
+    public void emoji_clicked(MouseEvent mouseEvent) {
+        emoji_pane.setVisible(true);
+    }
+
+    public void back_clicked(MouseEvent mouseEvent) {
+        emoji_pane.setVisible(false);
     }
 }
