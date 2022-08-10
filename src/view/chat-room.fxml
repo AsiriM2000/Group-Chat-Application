@@ -62,7 +62,7 @@
             </ImageView>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#emoji_clicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assests/imoji/1.png" />
+                  <Image url="@../assests/emoji/1.png" />
                </image>
             </ImageView>
          </children>
